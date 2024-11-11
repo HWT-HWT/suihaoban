@@ -51,11 +51,9 @@
 		width: 100%;
 		height: 150rpx;
 		background-color: #fff;
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		display: flex;
-		// align-items: center;
-		// background: ;
 		border: 1px solid #ccc;
 		.TabBtn{
 			width: 20%;

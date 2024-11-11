@@ -1,6 +1,6 @@
 <template>
 	<view class="Home">
-		<view class="NavTitle">
+		<view class="NavTitle" :style="{backgroundColor:backgroundColor},{opacity:scrollTop}">
 			<view class="occupy">
 				
 			</view>
@@ -16,8 +16,14 @@
 					<image class="search-image" src="../static/suihaoban/ic_version_switch_enterprise.png" mode=""></image>
 				</view>
 			</view>
-			
 		</view>
+		
+		
+		<scroll-view class="ioc" style="width: 100%; height: 200vh; background-color: #000;" scroll-y="true"  @scroll="onPageScroll">
+				<view style="width: 100%; height: 300vh;background-color:#ccc">
+					
+				</view>
+		</scroll-view>
 	</view>
 </template>
 
@@ -26,8 +32,26 @@
 		name:"home",
 		data() {
 			return {
-				
+				 backgroundColor: '',
+				 scrollThreshold: 200,
+				 scrollTop:''
 			};
+		},
+		methods: {
+		    onPageScroll(event) {
+				  this.scrollTop =  event.detail.scrollTop;
+				  console.log();
+				  if(this.scrollTop>this.scrollThreshold){
+					  
+					  
+					  this.backgroundColor = '#ee734c'
+					  
+				  }
+				  if(this.scrollTop<this.scrollThreshold){
+				  	this.backgroundColor = ''
+					
+				  }
+			},
 		}
 	}
 </script>
@@ -40,7 +64,8 @@
 		.NavTitle{
 			width:100%;
 			height: 200rpx;
-			background-color: #ee734c;
+			z-index: 999;
+			position: fixed;
 			.occupy{
 				width: 100%;
 				height: 50%;
@@ -48,9 +73,7 @@
 			.search{
 				width: 100%;
 				height: 45%;
-				// border: 1px solid;
 				display: flex;
-				// align-items: center;
 				.search-icon{
 					width: 10%;
 					height: 100%;
