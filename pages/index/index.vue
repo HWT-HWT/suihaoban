@@ -1,11 +1,10 @@
 <template>
 	<view class="home">
-
 		<Home v-if="!list[0]?.isTrue"></Home>
 		<Work v-if="!list[1]?.isTrue"></Work>
 		<Live v-if="!list[2]?.isTrue"></Live>
 		<User v-if="!list[3]?.isTrue"></User>
-		
+
 		<!-- 底部taber -->
 		<fontTaber @update:data='change'></fontTaber>
 	</view>

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "font-taber": "../../components/footTaber",
+    "home": "../../components/home",
+    "work": "../../components/Work",
+    "live": "../../components/Live",
+    "user": "../../components/User"
+  }
+}

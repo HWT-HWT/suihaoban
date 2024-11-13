@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tab-btn": "./Tab_btn/Tab_btn"
+  }
+}

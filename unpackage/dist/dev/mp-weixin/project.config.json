@@ -18,7 +18,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "3.6.4",
+  "libVersion": "3.6.5",
   "appid": "wx24bedcc4e0899daf",
   "projectname": "suihaoban",
   "condition": {},
