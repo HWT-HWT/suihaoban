@@ -1,0 +1,29 @@
+{
+    "id": "app-idCardFaceCollect",
+    "name": "idCardFaceCollect",
+    "displayName": "idCardFaceCollect",
+    "version": "1.0.0",
+    "description": "身份证采集，人脸采集、自定义相机",
+    "keywords": [
+        "live-pusher"
+    ],
+    "dcloudext": {
+        "category": [
+            "前端组件",
+            "通用组件"
+        ],
+        "contact": {
+            "qq": ""
+        },
+        "declaration": {
+            "ads": "无",
+            "data": "插件不采集任何数据",
+            "permissions": "相机权限"
+        },
+        "npmurl": ""
+    },
+    "repository": "",
+    "engines": {
+        "HBuilderX": "^3.4.15"
+    }
+}

@@ -1,0 +1,90 @@
+<template>
+	<view class="navbar-fixed" :style="`width: ${systemInfo.windowWidth}px`">
+		<view :style=" { height: systemInfo.statusBarHeight + 'px' }"></view>
+		<view class="navigate-bar" :style="`height: ${systemInfo.navBarHeight}px;width: ${systemInfo.windowWidth}px`">
+			<view class="navigate-left" :style="`height: ${systemInfo.navBarHeight}px;`">
+				<image src="@/static/images/navigate/arrow_left.png" @click="returnPage" v-if="params.lefTitle === '返回'"
+					mode="widthFix" class="image" />
+				<text v-else @click="handleClickLeftButton">{{ params.lefTitle }}</text>
+			</view>
+			<text v-if="params.type === 'default'" class="navigate-center">{{ props.params.title }}</text>
+			<view class="navigate-center" v-else-if="params.type === 'index'">
+				<view class="navigate-index-input">
+					<image src="@/static/images/navigate/search.png" mode="widthFix" class="image"></image>
+					<input type="text" placeholder="请输入项目关键字" placeholder-class="navigate-index-input-placeholder"
+						placeholder-style="color:#fff" class="inputs" />
+				</view>
+			</view>
+			<view class="navigate-right" v-if="params.rightButtonTitle" @click="handleClickRightButton">
+				<text v-if="params.type === 'default'" class="text">{{ params.rightButtonTitle }}</text>
+				<view v-if="params.type === 'index'" class="navigate-right-index-images">
+					<image class="image" src="@/static/images/navigate/canmera.png" mode="widthFix"></image>
+					<image class="image" src="@/static/images/navigate/card.png" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script lang="ts" setup>
+	import {
+		ref,
+		computed,
+		reactive
+	} from "vue"
+
+	/*  导航的背景色，左侧图标的文字
+			params.navColor  导航的背景颜色
+			params.lefTitle  左侧图标的文字
+			params.title    导航的标题
+			params.rightButtonTitle : 导航
+	*/
+
+	const props = defineProps({
+		params: {
+			type: Object,
+			default: {}
+		}
+	});
+
+	// 获取手机系统信息
+	const systemInfo = reactive({
+		statusBarHeight: 46,
+		navBarHeight: 46,
+		windowWidth: 0,
+		path: "",
+		height: 54,
+	})
+
+	const emit = defineEmits(["changeMangementApplication", "handleClickLeftButton", "returnPage"]);
+
+	const info = uni.getSystemInfoSync();
+	systemInfo.statusBarHeight = info.statusBarHeight
+	systemInfo.windowWidth = info.windowWidth
+	// 除了h5 app mp-alipay的情况下执行
+	// #ifndef H5 || APP-PLUS || MP-ALIPAY
+	// 获取胶囊的位置
+	const menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+	// (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏内的高度) = 导航栏的高度
+	systemInfo.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info
+		.statusBarHeight);
+	systemInfo.windowWidth = menuButtonInfo.left;
+	// #endif
+
+	function returnPage() {
+		// uni.navigateBack();
+		emit("returnPage");
+	}
+
+	function handleClickRightButton() {
+		emit("changeMangementApplication")
+	}
+
+	function handleClickLeftButton() {
+		emit("handleClickLeftButton")
+	}
+</script>
+
+<style lang="scss">
+	@import "ligth.scss";
+</style>

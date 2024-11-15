@@ -1,0 +1,182 @@
+.index_container {
+		display: flex;
+		// background-color: $base-color;
+		background-color: #fff;
+		
+		.index_content {
+			flex: 1;
+			display: flex;
+			padding-bottom: 240rpx;
+			
+			
+			.page-content {
+				background-color: transparent;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				margin-top: 32rpx;
+				margin-left: 10rpx;
+			
+				.contentV {
+					width: 696rpx;
+					height: 696rpx;
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+			
+					.camera {
+						width: 684rpx;
+						height: 684rpx;
+						background-color: transparent;
+					}
+			
+					.card {
+						width: 684rpx;
+						height: 462rpx;
+						background-color: transparent;
+						
+					}
+					
+					.face-box{
+						width: 500rpx;
+						height: 650rpx;
+						position: relative;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						flex-direction: row;
+						
+						.face-background{
+							position: absolute;
+							left: 0;
+							top: 0;
+							width: 500rpx;
+							height: 500rpx;
+						}
+						.face-image{
+							width: 357rpx;
+							height: 357rpx;
+							position: absolute;
+							left: 72rpx;
+							top: 70rpx;
+							background-color: skyblue;
+							border-radius: 100%;
+						}
+						.face-success{
+							width: 149.55rpx;
+							height: 149.55rpx;
+							position: absolute;
+							left: 320rpx;
+							top: 300rpx;
+						}
+						
+						.text{
+							font-size: 64rpx;
+							color: #2DAB19;
+							font-weight: bold;
+							margin-top: 500rpx;
+						}
+						
+					}
+								
+				}
+			
+				.contentV-card {
+					height: 472rpx;
+				}
+			
+				.auxiliary {
+					width: 696rpx;
+					height: 474rpx;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+				.person{
+					height: 696rpx;
+				}
+			}
+			
+			.note-info{
+				margin-top: 30rpx;
+	
+			}
+			
+			.footer-operate{
+				height: 200rpx;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				background-color: #fff;
+				
+				.photograph{
+					height: 200rpx;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: row;
+					position: relative;
+					
+					.snap-box{
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						height: 200rpx;
+					}
+					
+					.flip-box{
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						height: 200rpx;
+						position: absolute;
+						right: 80rpx;
+					}
+					
+				}
+				
+				.snap{
+					width: 128rpx;
+					height: 128rpx;
+					border-radius: 50%;
+				}
+				
+				.text{
+					font-size: 28rpx;
+					color: #323845;
+					font-weight: bold;
+				}
+			}
+			
+			.operate{
+				height: 200rpx;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-around;
+				
+				.cancel{
+					width: 319rpx;
+					height: 96rpx;
+					border-radius: 10rpx;
+					border: 2rpx solid #3A7DFE;
+					color: #3A7DFE;
+					text-align: center;
+					line-height: 96rpx;
+				}
+				.confirm{
+					width: 319rpx;
+					height: 96rpx;
+					border-radius: 10rpx;
+					border: 2rpx solid #3A7DFE;
+					background-color: #3A7DFE;
+					color: #fff;
+					text-align: center;
+					line-height: 96rpx;
+				}
+			}
+			
+		}
+}

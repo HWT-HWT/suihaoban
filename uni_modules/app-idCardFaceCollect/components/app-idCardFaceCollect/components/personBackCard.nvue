@@ -1,0 +1,74 @@
+<template>
+	<view class="person-back-card">
+		<view class="title">
+			<view class="text-highlight"></view>
+			<text class="text" v-if="props.collectType === COLLECTTYPE.FROMT">拍摄身份证原件-人像面</text>
+			<text class="text" v-else-if="props.collectType === COLLECTTYPE.BACK">拍摄身份证原件-国徽面</text>
+			<text class="text" v-else-if="props.collectType === COLLECTTYPE.PERSON">人脸识别扫描</text>
+		</view>
+		<text class="info" v-if="props.collectType !== COLLECTTYPE.PERSON">
+			请确保照片四角完整，照片清晰，避免反光
+		</text>
+		<text class="info" v-else>
+			请保持正对手机，光线充足，脸无遮挡，不带眼镜
+		</text>
+		<image class="image" src="@/static/images/index/idCard.png" mode="widthFix"
+			v-if="props.collectType === COLLECTTYPE.FROMT"> </image>
+		<image class="image" src="@/static/images/index/idCardBack.png" mode="widthFix"
+			v-else-if="props.collectType === COLLECTTYPE.BACK"> </image>
+	</view>
+</template>
+
+<script setup lang="ts">
+	import { COLLECTTYPE } from "../content";
+
+	const props = defineProps(["collectType"])
+</script>
+
+<style lang="scss">
+	.person-back-card {
+		position: relative;
+		display: flex;
+		// flex-direction: column;
+		align-items: center;
+		margin-top: 20rpx;
+
+		.title {
+			text-align: center;
+			position: relative;
+
+			.text-highlight {
+				width: 426rpx;
+				height: 16rpx;
+				background: rgba(3, 122, 255, 0.2);
+				position: absolute;
+				left: 0;
+				bottom: -5rpx;
+				z-index: 0;
+
+			}
+
+			.text {
+				color: #1D2129;
+				font-weight: bold;
+				font-size: 40rpx;
+			}
+		}
+
+		.info {
+			font-size: 32rpx;
+			font-weight: bold;
+			height: 64rpx;
+			line-height: 64rpx;
+			color: #FF8F1F;
+			margin-top: 12rpx;
+		}
+
+		.image {
+			width: 612rpx;
+			height: 380rpx;
+			margin-top: 24rpx;
+		}
+
+	}
+</style>

@@ -1,0 +1,70 @@
+
+.step_operating_container {
+		background-color: $base-color;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		height: 88rpx;
+		color: #fff;
+		font-size: 24rpx;
+		padding: 0rpx 32rpx;
+		overflow: hidden;
+		.line{
+			width: 80rpx;
+			height: 2rpx;
+			background-color: #AFC8FF;
+		}
+		.step_item {
+			height: 88rpx;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			
+			.box{
+				width: 56rpx;
+				height: 56rpx;
+				position: relative;
+				
+				.icon {
+					width: 56rpx;
+					height: 56rpx;
+					margin-bottom: 8rpx;
+					border-radius: 50%;
+				}
+				.number-box{
+					width: 56rpx;
+					height: 56rpx;
+					position: absolute;
+					left: 0%;
+					top: 0%;
+				}
+				.number{
+					color: #3A86FF;
+					width: 56rpx;
+					height: 56rpx;
+					line-height: 56rpx;
+					text-align: center;
+					font-weight: bold;
+					text-align: center;
+					z-index: 999;
+					font-size: 28rpx;
+				}
+			}
+			
+			
+			.title{
+				color: #fff;
+				font-weight: normal;
+				text-align: center;
+				font-size: 28rpx;
+			}
+			.disabel{
+				color: rgba(255,255,255,0.45);
+			}
+			
+		}
+
+
+	}

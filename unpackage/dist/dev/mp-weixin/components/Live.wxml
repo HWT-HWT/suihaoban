@@ -1,1 +1,1 @@
-<view> 生活 </view>
+<view class="data-v-e3c415cd"><live-pusher id="livePusher" ref="livePusher" class="livePusher data-v-e3c415cd" mode="FHD" beauty="0" whiteness="0" aspect="{{a}}" min-bitrate="1000" audio-quality="16KHz" device-position="{{b}}" auto-focus="{{true}}" muted="{{true}}" enable-camera="{{true}}" enable-mic="{{false}}" zoom="{{true}}" bindstatechange="{{c}}" style="{{'width:' + d + ';' + ('height:' + e)}}"></live-pusher><button class="data-v-e3c415cd" bindtap="{{f}}">切换摄像头</button></view>

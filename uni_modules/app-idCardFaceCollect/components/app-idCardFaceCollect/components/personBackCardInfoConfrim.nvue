@@ -1,0 +1,191 @@
+<template>
+	<view class="person-back-card-info-confrim">
+		<view class="title">
+			<view class="text-highlight"></view>
+			<text class="text">识别内容核对</text>
+		</view>
+
+		<view class="info-list">
+			<template v-if="props.collectType === COLLECTTYPE.FROMT">
+				<view class="info-item">
+					<view class="label">
+						<text class="text">姓</text>
+						<text class="text">名：</text>
+					</view>
+					<text class="value">王大锤</text>
+					<view class="btn-box">
+						<image src="@/static/images/index/edit.png" class="icon"></image>
+						<text class="text">修改姓名</text>
+					</view>
+				</view>
+				<view class="info-box">
+					<view class="info-item">
+						<view class="label">
+							<text class="text">性</text>
+							<text class="text">别：</text>
+						</view>
+						<text class="value">男</text>
+					</view>
+					<view class="info-item">
+						<view class="label">
+							<text class="text">民</text>
+							<text class="text">族：</text>
+						</view>
+						<text class="value">汉族</text>
+					</view>
+				</view>
+				<view class="info-item">
+					<view class="label">
+						<text class="text">出</text>
+						<text class="text">生：</text>
+					</view>
+					<text class="value">1965-11-25</text>
+				</view>
+				<view class="info-item">
+					<view class="label">
+						<text class="text">住</text>
+						<text class="text">址：</text>
+					</view>
+					<text class="value">广东省广州市天河区中山大道1091号</text>
+				</view>
+
+				<view class="info-item">
+					<view class="label">
+						<text class="text">身</text>
+						<text class="text">份</text>
+						<text class="text">证</text>
+						<text class="text">号：</text>
+					</view>
+					<text class="value">432524 19651105 1234</text>
+				</view>
+			</template>
+
+			<template v-else-if="props.collectType === COLLECTTYPE.BACK">
+				<view class="info-item">
+					<view class="label">
+						<text class="text">签</text>
+						<text class="text">发</text>
+						<text class="text">机</text>
+						<text class="text">关：</text>
+					</view>
+					<text class="value">广东省广州市天河区派出所</text>
+				</view>
+				<view class="info-item">
+					<view class="label">
+						<text class="text">有</text>
+						<text class="text">限</text>
+						<text class="text">期</text>
+						<text class="text">限：</text>
+					</view>
+					<text class="value">2020/04/02——长期</text>
+				</view>
+			</template>
+
+		</view>
+
+	</view>
+</template>
+
+<script setup lang="ts">
+	import { COLLECTTYPE } from "../content";
+
+	const props = defineProps(["collectType"])
+
+	console.log(props.collectType);
+</script>
+
+<style lang="scss">
+	.person-back-card-info-confrim {
+		position: relative;
+		display: flex;
+		padding: 20rpx 32rpx 0rpx 32rpx;
+		// flex-direction: column;
+
+		.title {
+			position: relative;
+
+			.text-highlight {
+				width: 240rpx;
+				height: 16rpx;
+				background: rgba(3, 122, 255, 0.2);
+				position: absolute;
+				left: 0;
+				bottom: -5rpx;
+				z-index: 0;
+
+			}
+
+			.text {
+				color: #1D2129;
+				font-weight: bold;
+				font-size: 40rpx;
+			}
+		}
+
+		.info-list {
+			display: flex;
+			margin-top: 30rpx;
+
+			.info-box {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+
+			}
+
+			.info-item {
+				flex: 1;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				height: 96rpx;
+				border-bottom: 2rpx solid #E9ECF1;
+
+				.label {
+					width: 160rpx;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+
+					.text {
+						color: #979B9F;
+						font-size: 32rpx;
+					}
+				}
+
+				.value {
+					flex: 1;
+					color: #323845;
+					font-size: 32rpx;
+				}
+
+				.btn-box {
+					display: flex;
+					flex-direction: row;
+					width: 184rpx;
+					height: 56rpx;
+					justify-content: center;
+					align-items: center;
+					border-radius: 40rpx;
+					border: 2rpx solid #07C160;
+
+					.icon {
+						width: 32rpx;
+						height: 32rpx;
+					}
+
+					.text {
+						color: #07C160;
+						font-weight: bold;
+						font-size: 28rpx;
+						margin-top: 1rpx;
+					}
+
+				}
+
+			}
+
+		}
+	}
+</style>

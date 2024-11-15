@@ -1,0 +1,288 @@
+<template>
+	<view class="index_container" :style="`width: ${data.windowWidth}px;height:${data.windowHeight}px`">
+		<navigateTabBar :params="data.params">
+		</navigateTabBar>
+		<view class="index_content" :style="`width: ${data.windowWidth}px`">
+
+			<stepOperating :step="data.step"></stepOperating>
+
+			<!-- 摄像头区域 -->
+			<scroll-view class="page-content" scroll-y="true" :style="`width: ${data.windowWidth}px`">
+
+				<cover-view :class="data.dotype == 'face' ? 'contentV' : 'contentV contentV-card'">
+
+					<cover-image v-if="data.snapshotsrc && data.collectType !== COLLECTTYPE.PERSON"
+						:src="data.snapshotsrc" :class="data.dotype == 'face' ? 'camera' : 'camera card'">
+					</cover-image>
+
+					<view v-else-if="data.snapshotsrc && data.collectType === COLLECTTYPE.PERSON" class="face-box">
+						<image src="@/static/images/camear/faceBg.png" mode="widthFix" class="face-background"></image>
+						<image src="#" class="face-image" mode="widthFix"></image>
+						<image src="@/static/images/faceRecognition/success.png" mode="widthFix" class="face-success">
+						</image>
+						<text class="text">人证比对成功</text>
+					</view>
+
+					<live-pusher v-else id="livePusher" ref="livePusher"
+						:class="data.dotype == 'face' ? 'camera' : 'camera card'" mode="FHD" beauty="0" whiteness="0"
+						min-bitrate="1000" audio-quality="48KHz" :device-position="data.position" :auto-focus="false"
+						:muted="true" :enable-camera="true" :enable-mic="false" :zoom="true" @statechange="statechange">
+					</live-pusher>
+
+					<cover-image v-if="data.collectType == COLLECTTYPE.FROMT && !data.snapshotsrc"
+						src="@/static/images/camear/idCard.png" class="auxiliary">
+					</cover-image>
+
+					<cover-image v-else-if="data.collectType == COLLECTTYPE.BACK && !data.snapshotsrc"
+						src="@/static/images/camear/idCardBack.png" class="auxiliary">
+					</cover-image>
+
+					<cover-image v-else-if="data.collectType == COLLECTTYPE.PERSON && !data.snapshotsrc"
+						src="@/static/images/camear/person.png" class="auxiliary person">
+					</cover-image>
+				</cover-view>
+			</scroll-view>
+
+			<view class="note-info">
+
+				<personBackCard :collectType="data.collectType" v-if="!data.snapshotsrc"></personBackCard>
+
+				<personBackCardInfoConfrim :collectType="data.collectType"
+					v-else-if="data.collectType !== COLLECTTYPE.PERSON "></personBackCardInfoConfrim>
+
+			</view>
+
+			<view class="footer-operate" :style="`width: ${data.windowWidth}px`">
+				<view class="photograph" :style="`width: ${data.windowWidth}px`" v-if="!data.snapshotsrc">
+					<view class="snap-box">
+						<image src="@/static/images/index/snap.png" mode="widthFix" class="snap" @click="snapshot">
+						</image>
+						<text class="text" @click="snapshot">拍照</text>
+					</view>
+					<view class="flip-box">
+						<image src="@/static/images/index/snap.png" mode="widthFix" class="snap" @click="flip">
+						</image>
+						<text class="text" @click="flip">翻转</text>
+					</view>
+				</view>
+
+				<view class="operate" :style="`width: ${data.windowWidth}px`" v-else>
+					<text class="cancel" @click="handleCancelClick">重拍</text>
+					<text class="confirm" @click="handleOkClick">确认</text>
+				</view>
+
+			</view>
+
+		</view>
+	</view>
+
+	<!-- 出错弹窗 -->
+	<!-- <PopupInfo /> -->
+
+	<!-- 修改姓名 -->
+	<!-- <ModifyInfo /> -->
+
+</template>
+
+<script setup lang="ts">
+	import { reactive, ref, onMounted, nextTick, getCurrentInstance } from 'vue';
+	import { onLoad, onReady } from '@dcloudio/uni-app';
+
+	import navigateTabBar from "./components/navigateTabBar/navigateTabBar"
+	import stepOperating from "./components/stepOperating/stepOperating"
+	import personBackCard from "./components/personBackCard"
+	import personBackCardInfoConfrim from "./components/personBackCardInfoConfrim"
+	import { COLLECTTYPE } from './content';
+
+	// import newCamear from "../newCamear/newCamear"
+	import PopupInfo from "./components/popupInfo.vue"
+	import ModifyInfo from "./components/modifyInfo.vue"
+
+	// import { COLLECTTYPE } from "./content";
+
+	const livePusher = ref(null);
+
+	const data = reactive({
+		_this: null,
+		collectType: COLLECTTYPE.FROMT,
+		poenCarmeInterval: null, //打开相机的轮询
+		dotype: 'card', //操作类型
+		message: '', //提示
+		aspect: '2:3', //比例
+		cameraWidth: 0, //相机画面宽度
+		cameraHeight: 0, //相机画面宽度
+		windowWidth: 0, //屏幕可用宽度
+		windowHeight: 0, //屏幕可用高度
+		camerastate: false, //相机准备好了
+		livePusher: null, //流视频对象
+		snapshotsrc: null, //快照
+		position: "front",
+		type: "",
+		params: {
+			lefTitle: '返回',
+			title: '实名采集',
+			rightButtonTitle: '',
+			type: 'default'
+		},
+		step: 0
+	})
+
+	//初始化相机
+	const initCamera = () => {
+		//处理安卓手机异步授权问题
+		uni.getSystemInfo({
+			success: function(res) {
+				console.log(res);
+				data.windowWidth = res.windowWidth;
+				data.windowHeight = res.windowHeight;
+				data.cameraWidth = res.windowWidth;
+				data.cameraHeight = res.windowWidth * 1.5;
+				data.position = data.dotype === "card" ? "back" : "front"
+			}
+		});
+	}
+	//开始预览
+	const startPreview = () => {
+		data.livePusher.startPreview({
+			success: a => {
+				console.log(a);
+			}
+		});
+	}
+	//轮询打开
+	const poenCarme = () => {
+		//#ifdef APP-PLUS
+		if (plus.os.name == 'Android') {
+			data.poenCarmeInterval = setInterval(() => {
+				console.log(data.camerastate);
+				if (!data.camerastate) {
+					startPreview()
+				} else {
+					clearInterval(data.poenCarmeInterval)
+				}
+			}, 2500);
+		}
+		//#endif
+	}
+
+	onLoad((e: any) => {
+		if (e.collectType) {
+			data.collectType = e.collectType
+			if (e.collectType === COLLECTTYPE.PERSON) {
+				data.dotype = "face"
+				data.step = 1
+			}
+		}
+
+		// data.dotype = e.dotype;
+		// data.type = e.type
+		initCamera();
+	})
+
+	onReady(() => {
+		data._this = getCurrentInstance().proxy;
+		data.livePusher = uni.createLivePusherContext('livePusher', data._this);
+		// data.livePusher = livePusher.value;
+		startPreview(); //开启预览并设置摄像头
+		poenCarme();
+	})
+
+	onMounted(() => {
+
+	})
+
+	//停止预览
+	const stopPreview = () => {
+		data.livePusher.stopPreview({
+			success: a => {
+				data.camerastate = false; //标记相机未启动
+			}
+		});
+	}
+
+	//状态
+	const statechange = (e) => {
+		//状态改变
+		console.log(e);
+		if (e.detail.code == 1007) {
+			data.camerastate = true;
+		} else if (e.detail.code == -1301) {
+			data.camerastate = false;
+		}
+	}
+
+	//返回
+	const back = () => {
+		uni.navigateBack();
+	}
+
+	//抓拍
+	const snapshot = () => {
+		data.livePusher.snapshot({
+			success: e => {
+				console.log("拍照", e);
+				data.snapshotsrc = e.message.tempImagePath;
+			}
+		});
+	}
+
+	//反转
+	const flip = () => {
+		data.livePusher.switchCamera();
+		data.position = data.position === "front" ? "back" : "front";
+	}
+
+	//设置
+	const setImage = () => {
+		let pages = getCurrentPages();
+		let prevPage = pages[pages.length - 2]; //上一个页面
+		//直接调用上一个页面的setImageSave()方法，把数据存到上一个页面中去
+		// prevPage.$vm.setImageSave({ path: _this.snapshotsrc, dotype: this.dotype });
+		uni.$emit("setImage", { path: data.snapshotsrc, dotype: data.dotype, type: data.type }); //值传递
+	}
+
+	const handleCancelClick = () => {
+		data.snapshotsrc = false;
+
+		nextTick(() => {
+
+			data.livePusher = uni.createLivePusherContext('livePusher', data._this);
+			console.log(data.livePusher, "???");
+			startPreview(); //开启预览并设置摄像头
+
+			poenCarme();
+		})
+	}
+
+	const handleOkClick = () => {
+		console.log(data.snapshotsrc, data.collectType, "地址");
+
+		stopPreview();
+
+		if (data.collectType === COLLECTTYPE.FROMT) {
+			uni.navigateTo({
+				url: `/pages/index/index?collectType=${COLLECTTYPE.BACK}`
+			})
+		} else if (data.collectType === COLLECTTYPE.BACK) {
+			uni.navigateTo({
+				url: `/pages/index/index?collectType=${COLLECTTYPE.PERSON}`
+			})
+		} else if (data.collectType === COLLECTTYPE.PERSON) {
+
+		}
+	}
+
+	const handleReturnPage = () => {
+		uni.navigateBack()
+	}
+
+	defineExpose({
+		handleSnapshot: snapshot,
+		// handleSaveInfo: returnSaveInfo
+	})
+</script>
+
+<style lang="scss">
+	@import "light.scss";
+	@import "dark.scss";
+</style>

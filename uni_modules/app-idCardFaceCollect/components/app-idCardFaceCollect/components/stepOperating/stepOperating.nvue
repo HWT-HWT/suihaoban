@@ -1,0 +1,64 @@
+<template>
+	<view class="step_operating_container" :style="`width: ${systemInfo.windowWidth}px`">
+		<view class="step_item">
+			<view class="box">
+				<image class="icon" v-if="props.step === 0" src="../../static/images/index/pending.png">
+				</image>
+				<image class="icon" v-else src="../../static/images/index/success.png">
+				</image>
+				<cover-view v-if="props.step === 0" class="number-box"> <text class="number">1</text></cover-view>
+			</view>
+
+			<text class="title" :class="{'disabel':props.step !== 0}">采集证件照</text>
+		</view>
+		<view class="line"></view>
+		<view class="step_item">
+			<view class="box">
+				<image class="icon" v-if="props.step === 0" src="../../static/images/index/disable.png">
+				</image>
+				<image class="icon" v-else-if="props.step === 1" src="../../static/images/index/pending.png">
+				</image>
+				<image class="icon" v-else src="../../static/images/index/success.png">
+				</image>
+				<cover-view v-if="props.step === 1" class="number-box"> <text class="number">2</text></cover-view>
+
+			</view>
+			<text class="title" :class="{'disabel':props.step !== 1}">采集人脸</text>
+		</view>
+		<view class="line"></view>
+		<view class="step_item">
+			<view class="box">
+				<image class="icon" v-if="props.step === 0 || props.step === 1"
+					src="../../static/images/index/disable.png">
+				</image>
+				<image class="icon" v-else-if="props.step === 2" src="../../static/images/index/pending.png">
+				</image>
+				<image class="icon" v-else src="../../static/images/index/success.png">
+				</image>
+				<cover-view v-if="props.step ===  2" class="number-box"> <text class="number">3</text></cover-view>
+			</view>
+			<text class="title" :class="{'disabel':props.step !== 2}">信息完善</text>
+		</view>
+	</view>
+</template>
+
+<script setup lang="ts">
+	import { reactive } from "vue";
+
+	const props = defineProps(['step'])
+
+	console.log(props, "props");
+
+	// 获取手机系统信息
+	const systemInfo = reactive({
+		windowWidth: 0,
+	})
+
+	const info = uni.getSystemInfoSync();
+	systemInfo.windowWidth = info.windowWidth
+</script>
+
+<style lang="scss" scoped>
+	@import "dark.scss";
+	@import "ligth.scss";
+</style>

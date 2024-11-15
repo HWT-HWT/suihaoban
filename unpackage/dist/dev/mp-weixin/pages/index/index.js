@@ -21,7 +21,6 @@ const _sfc_main = {
   methods: {
     change(data) {
       this.list = data;
-      console.log(this.list);
     }
   },
   components: {

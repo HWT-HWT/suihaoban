@@ -6,6 +6,10 @@
 		<User v-if="!list[3]?.isTrue"></User>
 
 		<!-- 底部taber -->
+		
+		<view style="height: 200rpx;">
+			
+		</view>
 		<fontTaber @update:data='change'></fontTaber>
 	</view>
 </template>
@@ -33,7 +37,7 @@
 		methods:{
 			change(data){
 				this.list = data
-				console.log(this.list);
+				// console.log(this.list);
 			}
 		},
 		components:{
@@ -49,5 +53,7 @@
 <style lang="scss" scoped>
 	.home{
 		width: 100%;
+		height: 100%;
+		overflow: hidden;
 	}
 </style>
