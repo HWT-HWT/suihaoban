@@ -55,18 +55,20 @@
   height: 50rpx;
 }
 .Home .NavTitle .search .search-input.data-v-045d88fd {
-  width: 65%;
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 .Home .NavTitle .search .search-input .uni-mt-10.data-v-045d88fd {
   width: 95%;
-  height: 55rpx;
+  height: 20rpx;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10rpx;
+  color: #fff;
 }
 .Home .NavTitle .search .search-image.data-v-045d88fd {
   width: 25%;
@@ -104,7 +106,7 @@
   width: 90%;
   height: 40%;
   position: absolute;
-  bottom: 34%;
+  bottom: 33%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,10 +121,12 @@
   align-items: center;
   font-size: 25rpx;
   color: #fff;
+  z-index: 999;
 }
-.Home .ioc .icon .icon-btn .icon-btn-image.data-v-045d88fd {
+.Home .ioc .icon .icon-btn .icon-btn-icon.data-v-045d88fd {
   width: 70%;
-  height: 70%;
+  height: 85rpx;
+  background-size: 100%;
 }
 .Home .ioc .bannerMini.data-v-045d88fd {
   width: 100%;
@@ -145,14 +149,15 @@
 .Home .swiper.data-v-045d88fd {
   width: 100%;
   height: 370rpx;
+  margin-top: 30rpx;
 }
-.Home .icon-log.data-v-045d88fd {
+.Home .swiper .icon-log.data-v-045d88fd {
   width: 100%;
-  height: 350rpx;
+  height: 95%;
   background-color: #fafbfe;
   padding-bottom: 30rpx;
 }
-.Home .icon-log .log-box.data-v-045d88fd {
+.Home .swiper .icon-log .log-box.data-v-045d88fd {
   width: 95%;
   height: 100%;
   margin: 0 auto;
@@ -161,20 +166,20 @@
   padding-bottom: 30rpx;
   gap: 10rpx;
 }
-.Home .icon-log .log-box .btn-log.data-v-045d88fd {
+.Home .swiper .icon-log .log-box .btn-log.data-v-045d88fd {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 25rpx;
   padding-bottom: 20rpx;
 }
-.Home .icon-log .log-box .btn-log .btn-log-image.data-v-045d88fd {
+.Home .swiper .icon-log .log-box .btn-log .btn-log-image.data-v-045d88fd {
   width: 80rpx;
-  height: 60rpx;
+  height: 65rpx;
 }
-.Home .icon-log .log-box .btn-log .btn-log-text.data-v-045d88fd {
+.Home .swiper .icon-log .log-box .btn-log .btn-log-text.data-v-045d88fd {
   width: 95%;
   text-align: center;
   overflow: hidden;
@@ -207,25 +212,48 @@
   width: 23%;
   height: 43%;
   border: 1px solid #daebff;
+  border-radius: 7rpx;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 28rpx;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
 }
 .Home .Hot .Hot-icon .Hot-icon-box .box-image.data-v-045d88fd {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 20rpx;
 }
 .Home .Hot .Hot-icon .Hot-icon-box .box-image .Hot-icon-box-image.data-v-045d88fd {
-  width: 60rpx;
-  height: 60rpx;
+  width: 55rpx;
+  height: 55rpx;
 }
 .Home .Hot .Hot-icon .Hot-icon-box .Hot-icon-box-text.data-v-045d88fd {
+  width: 92%;
+  margin: 0 auto;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.Home .Hot-content.data-v-045d88fd {
+  height: 50rpx;
+  border-radius: 40rpx;
+  border: 1px solid #6aa0be;
+  font-size: 23rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9f8fb;
+  color: #2972a7;
+  padding: 0 5rpx;
+}
+.Home .Hot-content image.data-v-045d88fd {
+  width: 25rpx;
+  height: 25rpx;
+  margin: 0 5rpx;
 }
 .Home .characteristic.data-v-045d88fd {
   width: 90%;

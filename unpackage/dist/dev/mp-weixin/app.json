@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/Estate/Estate",
+    "pages/faceRecognition/faceRecognition"
   ],
   "window": {
     "navigationBarTextStyle": "black",

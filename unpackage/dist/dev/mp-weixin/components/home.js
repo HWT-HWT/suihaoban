@@ -45,7 +45,7 @@ const _sfc_main = {
             image: "../static/suihaoban/home_list_1.png"
           },
           {
-            name: "车辆年间",
+            name: "车辆年检",
             image: "../static/suihaoban/home_list_2.png"
           },
           {
@@ -135,6 +135,12 @@ const _sfc_main = {
       if (this.scrollTop < this.scrollThreshold) {
         this.backgroundColor = "";
       }
+    },
+    NagTo(index) {
+      console.log(index);
+      index === 5 ? common_vendor.index.navigateTo({
+        url: "/pages/Estate/Estate"
+      }) : index;
     }
   },
   components: {
@@ -152,25 +158,26 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_assets._imports_2,
+    a: common_assets._imports_2$1,
     b: common_vendor.p({
       placeholder: "搜索服务",
-      ["bg-color"]: "",
+      bgColor: "",
       clearButton: "none",
       cancelButton: "none"
     }),
-    c: common_assets._imports_1,
+    c: common_assets._imports_1$1,
     d: $data.backgroundColor,
-    e: common_assets._imports_2$1,
+    e: common_assets._imports_2$2,
     f: common_assets._imports_3,
     g: common_vendor.f($data.bannerIcon, (item, index, i0) => {
       return {
-        a: `../static/suihaoban/Nav_title_ioc${index + 1}.png`,
+        a: "url(" + item.image + ")",
         b: common_vendor.t(item.name),
         c: index
       };
     }),
-    h: common_vendor.f($data.iconLog, (item, index, i0) => {
+    h: common_assets._imports_4$1,
+    i: common_vendor.f($data.iconLog, (item, index, i0) => {
       return {
         a: common_vendor.f(item, (sum, num, i1) => {
           return {
@@ -182,34 +189,37 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         b: index
       };
     }),
-    i: common_assets._imports_4,
-    j: common_vendor.f($data.ZoneList, (item, index, i0) => {
+    j: common_assets._imports_5$1,
+    k: common_assets._imports_6$1,
+    l: common_assets._imports_7$1,
+    m: common_vendor.f($data.ZoneList, (item, index, i0) => {
       return {
         a: item.image,
         b: common_vendor.t(item.name),
-        c: index
+        c: index,
+        d: common_vendor.o(($event) => $options.NagTo(index), index)
       };
     }),
-    k: common_vendor.f(6, (item, k0, i0) => {
+    n: common_vendor.f(6, (item, k0, i0) => {
       return {
         a: `../static/suihaoban/bg_mini_banner${item}.png`,
         b: item
       };
     }),
-    l: common_assets._imports_5,
-    m: common_vendor.f($data.peopleLsit, (item, index, i0) => {
+    o: common_assets._imports_8$1,
+    p: common_vendor.f($data.peopleLsit, (item, index, i0) => {
       return {
         a: `../static/suihaoban/bm_ic_${index + 1}.png`,
         b: common_vendor.t(item),
         c: index
       };
     }),
-    n: common_assets._imports_6,
-    o: common_assets._imports_7,
-    p: common_assets._imports_8,
     q: common_assets._imports_9,
     r: common_assets._imports_10,
-    s: common_vendor.o((...args) => $options.onPageScroll && $options.onPageScroll(...args))
+    s: common_assets._imports_11,
+    t: common_assets._imports_12,
+    v: common_assets._imports_13,
+    w: common_vendor.o((...args) => $options.onPageScroll && $options.onPageScroll(...args))
   };
 }
 const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-045d88fd"]]);

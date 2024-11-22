@@ -3,5 +3,18 @@
   "projectname": "suihaoban",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/Estate/Estate",
+          "pathName": "pages/Estate/Estate",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

@@ -671,6 +671,7 @@
   flex-direction: row;
   position: relative;
   padding: 10px;
+  background-color: #000;
 }
 .uni-searchbar__box[data-v-f07ef577] {
   display: flex;
@@ -706,8 +707,8 @@
   padding-left: 8px;
 }
 .uni-searchbar__text-placeholder[data-v-f07ef577] {
-  font-size: 14px;
-  color: #B3B3B3;
+  font-size: 12px;
+  color: #fff;
   margin-left: 5px;
   text-align: left;
 }
@@ -743,14 +744,14 @@
 /* 透明度 */
 /* 文章场景相关 */
 .Hot-Title[data-v-463435c1] {
-  width: 100%;
+  width: 90%;
   height: 3.125rem;
   display: flex;
   align-items: center;
-  background-color: #fafbfe;
+  margin: 0 auto;
 }
 .Hot-Title .Hot-left[data-v-463435c1] {
-  width: 65%;
+  width: 25%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -759,15 +760,10 @@
   font-weight: bold;
 }
 .Hot-Title .Hot-rigth[data-v-463435c1] {
-  width: 20%;
+  flex: 1;
   height: 100%;
-  padding-right: 0.3125rem;
-  line-height: 2.34375rem;
   color: #267fc8;
-  font-size: 0.875rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 0.84375rem;
 }
 /**
  * 这里是uni-app内置的常用样式变量
@@ -826,18 +822,20 @@
   height: 1.5625rem;
 }
 .Home .NavTitle .search .search-input[data-v-045d88fd] {
-  width: 65%;
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 .Home .NavTitle .search .search-input .uni-mt-10[data-v-045d88fd] {
   width: 95%;
-  height: 1.71875rem;
+  height: 0.625rem;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0.3125rem;
+  color: #fff;
 }
 .Home .NavTitle .search .search-image[data-v-045d88fd] {
   width: 25%;
@@ -875,7 +873,7 @@
   width: 90%;
   height: 40%;
   position: absolute;
-  bottom: 34%;
+  bottom: 33%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -890,10 +888,12 @@
   align-items: center;
   font-size: 0.78125rem;
   color: #fff;
+  z-index: 999;
 }
-.Home .ioc .icon .icon-btn .icon-btn-image[data-v-045d88fd] {
+.Home .ioc .icon .icon-btn .icon-btn-icon[data-v-045d88fd] {
   width: 70%;
-  height: 70%;
+  height: 2.65625rem;
+  background-size: 100%;
 }
 .Home .ioc .bannerMini[data-v-045d88fd] {
   width: 100%;
@@ -916,14 +916,15 @@
 .Home .swiper[data-v-045d88fd] {
   width: 100%;
   height: 11.5625rem;
+  margin-top: 0.9375rem;
 }
-.Home .icon-log[data-v-045d88fd] {
+.Home .swiper .icon-log[data-v-045d88fd] {
   width: 100%;
-  height: 10.9375rem;
+  height: 95%;
   background-color: #fafbfe;
   padding-bottom: 0.9375rem;
 }
-.Home .icon-log .log-box[data-v-045d88fd] {
+.Home .swiper .icon-log .log-box[data-v-045d88fd] {
   width: 95%;
   height: 100%;
   margin: 0 auto;
@@ -932,20 +933,20 @@
   padding-bottom: 0.9375rem;
   gap: 0.3125rem;
 }
-.Home .icon-log .log-box .btn-log[data-v-045d88fd] {
+.Home .swiper .icon-log .log-box .btn-log[data-v-045d88fd] {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: 0.78125rem;
   padding-bottom: 0.625rem;
 }
-.Home .icon-log .log-box .btn-log .btn-log-image[data-v-045d88fd] {
+.Home .swiper .icon-log .log-box .btn-log .btn-log-image[data-v-045d88fd] {
   width: 2.5rem;
-  height: 1.875rem;
+  height: 2.03125rem;
 }
-.Home .icon-log .log-box .btn-log .btn-log-text[data-v-045d88fd] {
+.Home .swiper .icon-log .log-box .btn-log .btn-log-text[data-v-045d88fd] {
   width: 95%;
   text-align: center;
   overflow: hidden;
@@ -978,25 +979,48 @@
   width: 23%;
   height: 43%;
   border: 1px solid #daebff;
+  border-radius: 0.21875rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  padding-bottom: 0.3125rem;
 }
 .Home .Hot .Hot-icon .Hot-icon-box .box-image[data-v-045d88fd] {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 0.625rem;
 }
 .Home .Hot .Hot-icon .Hot-icon-box .box-image .Hot-icon-box-image[data-v-045d88fd] {
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 1.71875rem;
+  height: 1.71875rem;
 }
 .Home .Hot .Hot-icon .Hot-icon-box .Hot-icon-box-text[data-v-045d88fd] {
+  width: 92%;
+  margin: 0 auto;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.Home .Hot-content[data-v-045d88fd] {
+  height: 1.5625rem;
+  border-radius: 1.25rem;
+  border: 1px solid #6aa0be;
+  font-size: 0.71875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9f8fb;
+  color: #2972a7;
+  padding: 0 0.15625rem;
+}
+.Home .Hot-content uni-image[data-v-045d88fd] {
+  width: 0.78125rem;
+  height: 0.78125rem;
+  margin: 0 0.15625rem;
 }
 .Home .characteristic[data-v-045d88fd] {
   width: 90%;
@@ -1097,12 +1121,6 @@
   width: 100%;
   height: 100%;
 }
-
-.livePusher[data-v-e3c415cd] {
-  /* 样式设置 */
-}
-/* 其他样式... */
-
 /**
  * 这里是uni-app内置的常用样式变量
  *
@@ -1206,9 +1224,54 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.UserFoot[data-v-9b61165e] {
+  width: 100%;
+  margin-top: 0.625rem;
+}
+.UserFoot .UserFootList[data-v-9b61165e] {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+}
+.UserFoot .UserFootList .image[data-v-9b61165e] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.UserFoot .UserFootList .image .image-icon[data-v-9b61165e] {
+  width: 6.25rem;
+  height: 5.625rem;
+  margin-left: 0.78125rem;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
 .User[data-v-cecf776e] {
   width: 100%;
-  height: 100vh;
   background-color: #ededed;
 }
 .User .User-title[data-v-cecf776e] {
@@ -1238,7 +1301,7 @@
   height: 3.90625rem;
 }
 .User .User-title .User-head .User-name[data-v-cecf776e] {
-  width: 50%;
+  flex: 1;
   height: 100%;
   display: flex;
   align-items: center;
@@ -1268,7 +1331,6 @@
   font-family: "黑体";
 }
 .User .User-title .User-head .User-icon[data-v-cecf776e] {
-  flex: 1;
   height: 100%;
   display: flex;
   align-items: center;
@@ -1280,12 +1342,12 @@
   justify-content: space-between;
 }
 .User .User-title .User-head .User-icon .ic .ic-image[data-v-cecf776e] {
+  margin-right: 0.46875rem;
   width: 1.5625rem;
   height: 1.5625rem;
 }
 .User .User-title .User-Tub[data-v-cecf776e] {
   width: 90%;
-  height: 20%;
   margin: 0 auto;
   display: flex;
 }
@@ -1304,8 +1366,15 @@
   align-items: center;
 }
 .User .User-title .User-Tub .Tub .image-Tub .image-icom[data-v-cecf776e] {
-  width: 2.1875rem;
-  height: 2.1875rem;
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.User .User-title .User-Tub .Tub .image-text[data-v-cecf776e] {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .User .work[data-v-cecf776e] {
   width: 95%;
@@ -1345,7 +1414,7 @@
 }
 .User .work .work-content .work-content-box .box-image[data-v-cecf776e] {
   width: 100%;
-  height: 70%;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1357,15 +1426,15 @@
   height: 30%;
   display: flex;
   justify-content: center;
-  font-size: 0.9375rem;
+  font-size: 0.78125rem;
 }
 .User .work .work-content .work-content-boxOne[data-v-cecf776e] {
   width: 25%;
   height: 100%;
 }
 .User .work .work-content .work-content-boxOne .box-image .box-image-icon[data-v-cecf776e] {
-  width: 2.1875rem;
-  height: 2.1875rem;
+  width: 1.71875rem;
+  height: 1.71875rem;
 }
 .User .certificate[data-v-cecf776e] {
   width: 95%;
@@ -1444,6 +1513,5 @@
 /* 文章场景相关 */
 .home[data-v-1cf27b2a] {
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }

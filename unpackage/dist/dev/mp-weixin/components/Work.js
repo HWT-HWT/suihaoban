@@ -4,7 +4,8 @@ const _sfc_main = {
   name: "Work",
   data() {
     return {};
-  }
+  },
+  methods: {}
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {};

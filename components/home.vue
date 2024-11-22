@@ -10,7 +10,7 @@
 					<image class="search-icon" src="../static/suihaoban/dh.png" mode=""></image>
 				</view>
 				<view class="search-input">
-					<uni-search-bar  class="uni-mt-10" placeholder="搜索服务" bg-color="" clearButton="none" cancelButton="none"  />
+					<uni-search-bar  class="uni-mt-10" placeholder="搜索服务" bgColor="" clearButton="none" cancelButton="none"  /> 
 				</view>
 				<view class="search-image">
 					<image class="search-image" src="../static/suihaoban/ic_version_switch_enterprise.png" mode=""></image>
@@ -18,149 +18,153 @@
 			</view>
 		</view>
 		
-		<view style="width: 100%; height: 100%;">
-			<scroll-view style="width: 100%; height: 100vh; background-color: #fafbfe;" scroll-y="true"  @scroll="onPageScroll">
-					<view style="width: 100%; height: 200vh;background-color:#fafbfe">
-						
-						<swiper class="banner" indicator-active-color="#fff" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-							<swiper-item class="swiper-item">
-								<image src="../static/suihaoban/bg-1.png" mode=""></image>
-							</swiper-item>
-							<swiper-item class="swiper-item">
-								<image src="../static/suihaoban/bg-3.png" mode=""></image>
-							</swiper-item>
-						</swiper>
-						
-						<view class="ioc">
-							<view class="icon">
-								<view class="icon-btn" v-for="(item,index) in bannerIcon" :key="index">
-									<image class="icon-btn-image" :src="`../static/suihaoban/Nav_title_ioc${index+1}.png`" mode=""></image>
-									<view>
-										{{item.name}}
-									</view>
+		<scroll-view style="width: 100%; height: 100vh;background-color: #fafbfe;" scroll-y="true"  @scroll="onPageScroll" enable-flex>
+				<view style="width: 100%;background-color:#fafbfe;">
+					
+					<swiper class="banner" indicator-active-color="#fff" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+						<swiper-item class="swiper-item">
+							<image src="../static/suihaoban/bg-1.png" mode=""></image>
+						</swiper-item>
+						<swiper-item class="swiper-item">
+							<image src="../static/suihaoban/bg-3.png" mode=""></image>
+						</swiper-item>
+					</swiper>
+					
+					<view class="ioc">
+						<view class="icon">
+							<view class="icon-btn" v-for="(item,index) in bannerIcon" :key="index">
+								<view class="icon-btn-icon" :style="{ backgroundImage:'url(' + item.image + ')' }">
+									
 								</view>
-							</view>
-							<view class="bannerMini">
-								广州 30℃ | 广州不动产功能迁移....
-							</view>
-						</view>
-						
-						<view class="occupy-box">
-							
-						</view>
-						
-						<swiper class="swiper" :indicator-dots="true" indicator-active-color="#ee734c" indicator-color="#cccccc" :interval="3000" :duration="1000">
-							<swiper-item v-for="(item,index) in iconLog" :key="index">
-								<view class="icon-log">
-									<view class="log-box">
-										<view class="btn-log" v-for="(sum,num) in item" :key="num">
-											<image class="btn-log-image" :src="sum.image" mode=""></image>
-											<view class="btn-log-text">
-												{{sum.name}}
-											</view>
-										</view>
-									</view>
-								</view>
-							</swiper-item>
-						</swiper>
-						
-						<view class="Zone">
-							<image class="Zone" src="../static/suihaoban/Zone.png" mode=""></image>
-						</view>
-						
-						<titleVue>
-							<template #left>
-								热门服务
-							</template>
-							<template #rigth>
-								更多
-							</template>
-						</titleVue>
-						
-						<view class="Hot">
-							<view class="Hot-icon">
-								<view class="Hot-icon-box" v-for="(item,index) in ZoneList" :key="index">
-									<view class="box-image">
-										<image class="Hot-icon-box-image" :src="item.image" mode=""></image>
-									</view>
-									<view class="Hot-icon-box-text">{{item.name}}</view>
+								<view>
+									{{item.name}}
 								</view>
 							</view>
 						</view>
 						
-						<titleVue>
-							<template #left>
-								特色服务
-							</template>
-							<template #rigth>
-								更多
-							</template>
-						</titleVue>
-						
-						<view class="characteristic">
-							<view class="characteristic-image" v-for="item in 6" :key="item">
-								<image class="image" :src="`../static/suihaoban/bg_mini_banner${item}.png`" mode=""></image>
-							</view>
+						<view class="bannerMini">
+							广州 &nbsp;<image style="width: 30rpx;height: 30rpx;" src="../static/suihaoban/yun.png" mode=""></image> &nbsp;21℃  | 广州不动产功能迁移....
 						</view>
-						
-						<titleVue>
-							<template #left>
-								便民服务
-							</template>
-						</titleVue>
-						
-						<view class="people">
-							<view class="people-image">
-								<image class="image" src="../static/suihaoban/bm_1.png" mode=""></image>
-							</view>
-							<view class="people-icon">
-								<view class="icon" v-for="(item,index) in peopleLsit" :key="index">
-									<image class="image" :src="`../static/suihaoban/bm_ic_${index+1}.png`" mode=""></image>
-									<view class="text">
-										{{item}}
-									</view>
-								</view>
-							</view>
-						</view>
-						
-						<view class="backG">
-							<image class="image" src="../static/suihaoban/bg_3.png" mode=""></image>
-						</view>
-						
-						<view class="backGu">
-							<view class="backGuUrl">
-								<image class="image" src="../static/suihaoban/bg_1.png" mode=""></image>
-							</view>
-							<view class="backGuUrl">
-								<image class="image" src="../static/suihaoban/bg_2.png" mode=""></image>
-							</view>
-						</view>
-						
-						<view style="width: 95%;">
-							<titleVue>
-								<template #left>
-									我的足迹
-								</template>
-							</titleVue>
-						</view>
-						
-						<view class="backGun">
-							<image class="image" src="../static/suihaoban/bg_4.png" mode=""></image>
-						</view>
-						
-						<view class="backGund">
-							<image class="image" src="../static/suihaoban/bg_5.png" mode=""></image>
-						</view>
+					</view>
+					
+					<view class="occupy-box">
 						
 					</view>
 					
-					<view style="height: 200rpx;">
-						
+					<swiper class="swiper" :indicator-dots="true" indicator-active-color="#ee734c" indicator-color="#cccccc" :interval="3000" :duration="1000">
+						<swiper-item v-for="(item,index) in iconLog" :key="index">
+							<view class="icon-log">
+								<view class="log-box">
+									<view class="btn-log" v-for="(sum,num) in item" :key="num">
+										<image class="btn-log-image" :src="sum.image" mode=""></image>
+										<view class="btn-log-text">
+											{{sum.name}}
+										</view>
+									</view>
+								</view>
+							</view>
+						</swiper-item>
+					</swiper>
+					
+					<view class="Zone">
+						<image class="Zone" src="../static/suihaoban/Zone.png" mode=""></image>
 					</view>
-			</scroll-view>
-			
-		</view>
-		
+					
+					<titleVue>
+						<template #left>
+							热门服务
+						</template>
+						<template #content>
+							<view class="Hot-content">
+								<image src="@/static/suihaoban/kefu.png" mode=""></image>12345诉求直达<image src="@/static/suihaoban/right.png" mode=""></image>
+							</view>
+						</template>
+						<template #rigth>
+							更多
+						</template>
+					</titleVue>
+					
+					<view class="Hot">
+						<view class="Hot-icon">
+							<view class="Hot-icon-box" v-for="(item,index) in ZoneList" :key="index" @click="NagTo(index)">
+								<view class="box-image">
+									<image class="Hot-icon-box-image" :src="item.image" mode=""></image>
+								</view>
+								<view class="Hot-icon-box-text">{{item.name}}</view>
+							</view>
+						</view>
+					</view>
+					
+					<titleVue>
+						<template #left>
+							特色服务
+						</template>
+						<template #rigth>
+							更多
+						</template>
+					</titleVue>
+					
+					<view class="characteristic">
+						<view class="characteristic-image" v-for="item in 6" :key="item">
+							<image class="image" :src="`../static/suihaoban/bg_mini_banner${item}.png`" mode=""></image>
+						</view>
+					</view>
+					
+					<titleVue>
+						<template #left>
+							便民服务
+						</template>
+					</titleVue>
+					
+					<view class="people">
+						<view class="people-image">
+							<image class="image" src="../static/suihaoban/bm_1.png" mode=""></image>
+						</view>
+						<view class="people-icon">
+							<view class="icon" v-for="(item,index) in peopleLsit" :key="index">
+								<image class="image" :src="`../static/suihaoban/bm_ic_${index+1}.png`" mode=""></image>
+								<view class="text">
+									{{item}}
+								</view>
+							</view>
+						</view>
+					</view>
+					
+					<view class="backG">
+						<image class="image" src="../static/suihaoban/bg_3.png" mode=""></image>
+					</view>
+					
+					<view class="backGu">
+						<view class="backGuUrl">
+							<image class="image" src="../static/suihaoban/bg_1.png" mode=""></image>
+						</view>
+						<view class="backGuUrl">
+							<image class="image" src="../static/suihaoban/bg_2.png" mode=""></image>
+						</view>
+					</view>
+					
+					<view style="width: 95%;">
+						<titleVue>
+							<template #left>
+								我的足迹
+							</template>
+						</titleVue>
+					</view>
+					
+					<view class="backGun">
+						<image class="image" src="../static/suihaoban/bg_4.png" mode=""></image>
+					</view>
+					
+					<view class="backGund">
+						<image class="image" src="../static/suihaoban/bg_5.png" mode=""></image>
+					</view>
+					
+				</view>
+				
+				<view style="height: 200rpx;">
+					
+				</view>
+		</scroll-view>
 	</view>
 </template>
 
@@ -209,7 +213,7 @@
 						 						 image:'../static/suihaoban/home_list_1.png'
 						 },
 						 {
-						 						 name:'车辆年间',
+						 						 name:'车辆年检',
 						 						 image:'../static/suihaoban/home_list_2.png'
 						 },
 						 {
@@ -302,6 +306,12 @@
 					
 				  }
 			},
+			NagTo(index){
+				console.log(index);
+				index === 5 ? uni.navigateTo({
+					url:'/pages/Estate/Estate'
+				}): index
+			}
 		},
 		components:{
 			titleVue
@@ -312,7 +322,6 @@
 <style lang="scss" scoped>
 	.Home{
 		width: 100%;
-		// height: 100vh;
 		background-color: #ccc;
 		.NavTitle{
 			width:100%;
@@ -340,24 +349,24 @@
 					}
 				}
 				.search-input{
-					width: 65%;
+					width: 60%;
 					height: 100%;
 					display: flex;
-					// border: 1px solid;
 					align-items: center;
+					margin: 0 auto;
 					.uni-mt-10{
 						width: 95%;
-						height: 55rpx;
+						height: 20rpx;
 						display: flex;
 						align-items: center;
-						background-color: #fff;
+						background-color: rgb(255, 255, 255,0.5);
 						border-radius:10rpx;
+						color: #fff;
 					}
 				}
 				.search-image{
 					width: 25%;
 					height: 100%;
-					// border: 1px solid;
 					display: flex; 
 					align-items: center;
 					border-radius: 5rpx;
@@ -392,10 +401,11 @@
 			// border: 1px solid;
 			z-index: 998;
 			.icon{
+				// border: 1px solid;
 				width: 90%;
 				height: 40%;
 				position: absolute;
-				bottom: 34%;
+				bottom: 33%;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
@@ -410,9 +420,11 @@
 					align-items: center;
 					font-size: 25rpx;
 					color: #fff;
-					.icon-btn-image{
+					z-index: 999;
+					.icon-btn-icon{
 						width: 70%;
-						height: 70%;
+						height: 85rpx;
+						background-size: 100%;
 					}
 				}
 			}
@@ -439,44 +451,44 @@
 		.swiper{
 			width: 100%;
 			height: 370rpx;
-		}
-		
-		.icon-log{
-			width: 100%;
-			height: 350rpx;
-			background-color: #fafbfe;
-			padding-bottom: 30rpx;
-			.log-box{
-				width: 95%;
-				height: 100%;
-				margin: 0 auto;
-				display: grid;
-				grid-template-columns: repeat(5,2fr);
+			margin-top: 30rpx;
+			.icon-log{
+				width: 100%;
+				height: 95%;
+				background-color: #fafbfe;
 				padding-bottom: 30rpx;
-				gap: 10rpx;
-				.btn-log{
-					width: 100%;
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: center;
-					align-items: center;
-					font-size: 28rpx;
-					padding-bottom: 20rpx;
-					.btn-log-image{
-						width: 80rpx;
-						height: 60rpx;
-					}
-					.btn-log-text{
-						width: 95%;
-						text-align: center;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						
+				.log-box{
+					width: 95%;
+					height: 100%;
+					margin: 0 auto;
+					display: grid;
+					grid-template-columns: repeat(5,2fr);
+					padding-bottom: 30rpx;
+					gap: 10rpx;
+					.btn-log{
+						width: 100%;
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
+						align-items: center;
+						font-size: 25rpx;
+						padding-bottom: 20rpx;
+						.btn-log-image{
+							width: 80rpx;
+							height: 65rpx;
+						}
+						.btn-log-text{
+							width: 95%;
+							text-align: center;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
 					}
 				}
 			}
 		}
+		
 		.Zone{
 			width: 100%;
 			height: 300rpx;
@@ -489,6 +501,7 @@
 			height: 280rpx;
 			background-color:#fafbfe ;
 			padding-top: 20rpx;
+			// border: 1px solid;
 			.Hot-icon{
 				width: 90%;
 				height: 100%;
@@ -503,25 +516,28 @@
 					width: 23%;
 					height: 43%;
 					border: 1px solid #daebff;
+					border-radius:7rpx ;
 					display: flex;
 					flex-wrap: wrap;
-					// align-items: center;
 					justify-content: center;
-					font-size: 28rpx;
-					
+					font-size: 26rpx;
+					padding-bottom: 10rpx;
 					.box-image{
 						width: 100%;
-						// border: 1px solid;
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						padding-top: 20rpx;
 						.Hot-icon-box-image{
-							width: 60rpx;
-							height: 60rpx;
+							width: 55rpx;
+							height: 55rpx;
 						}
 						
 					}
 					.Hot-icon-box-text{
+						width: 92%;
+						margin: 0 auto;
+						text-align: center;
 						white-space: nowrap;
 						overflow: hidden;
 						text-overflow: ellipsis;
@@ -530,6 +546,23 @@
 			}
 		}
 		
+		.Hot-content{
+			height: 50rpx;
+			border-radius: 40rpx;
+			border: 1px solid #6aa0be;
+			font-size: 23rpx;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #e9f8fb;
+			color: #2972a7;
+			padding:0 5rpx;
+			image{
+				width: 25rpx;
+				height: 25rpx;
+				margin: 0 5rpx;
+			}
+		}
 		.characteristic{
 			width: 90%;
 			height: 500rpx;

@@ -7,9 +7,6 @@
 
 		<!-- 底部taber -->
 		
-		<view style="height: 200rpx;">
-			
-		</view>
 		<fontTaber @update:data='change'></fontTaber>
 	</view>
 </template>
@@ -53,7 +50,7 @@
 <style lang="scss" scoped>
 	.home{
 		width: 100%;
-		height: 100%;
+		// height: 100%;
 		overflow: hidden;
 	}
 </style>

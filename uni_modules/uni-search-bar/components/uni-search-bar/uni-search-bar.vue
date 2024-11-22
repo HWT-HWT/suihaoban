@@ -4,7 +4,7 @@
 			@click="searchClick">
 			<view class="uni-searchbar__box-icon-search">
 				<slot name="searchIcon">
-					<uni-icons color="#c0c4cc" size="18" type="search" />
+					<uni-icons color="#fff" size="18" type="search" />
 				</slot>
 			</view>
 			<input v-if="show || searchVal" :focus="showSync" :disabled="readonly" :placeholder="placeholderText" :maxlength="maxlength"
@@ -17,9 +17,13 @@
 					<uni-icons color="#c0c4cc" size="20" type="clear" />
 				</slot>
 			</view>
+			
 		</view>
 		<text @click="cancel" class="uni-searchbar__cancel"
 			v-if="cancelButton ==='always' || show && cancelButton ==='auto'">{{cancelTextI18n}}</text>
+		<view class="search-search" style="width: 35rpx;height: 35rpx;">
+			<image style="width: 35rpx;height: 35rpx;" src="@/static/suihaoban/sys.png" mode=""></image>
+		</view>
 	</view>
 </template>
 
@@ -240,7 +244,8 @@
 		flex-direction: row;
 		position: relative;
 		padding: 10px;
-		// background-color: #fff;
+		background-color: #000;
+		// opacity: 0.5;
 	}
 
 	.uni-searchbar__box {
@@ -291,8 +296,8 @@
 	}
 
 	.uni-searchbar__text-placeholder {
-		font-size: 14px;
-		color: #B3B3B3;
+		font-size: 12px;
+		color: #fff;
 		margin-left: 5px;
 		text-align: left;
 	}

@@ -40,7 +40,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     d: common_vendor.p({
       label: $data.list[1]
     }),
-    e: common_assets._imports_0,
+    e: common_assets._imports_0$2,
     f: common_vendor.o(($event) => $options.btn($data.list, $data.list[2])),
     g: common_vendor.p({
       label: $data.list[2]

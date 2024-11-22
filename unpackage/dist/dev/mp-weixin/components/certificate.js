@@ -10,8 +10,8 @@ const _sfc_main = {
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_assets._imports_0$2,
-    b: common_assets._imports_0$2,
+    a: common_assets._imports_0$5,
+    b: common_assets._imports_0$5,
     c: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args))
   };
 }

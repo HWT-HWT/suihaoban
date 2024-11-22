@@ -5,6 +5,22 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path" : "pages/Estate/Estate",
+			"style" : 
+			{
+				"navigationBarTitleText" : "不动产",
+				"navigationStyle":"default"
+			}
+		},
+		{
+			"path" : "pages/faceRecognition/faceRecognition",
+			"style" : 
+			{
+				"navigationBarTitleText" : "人脸识别",
+				"navigationStyle":"default"
+			}
 		}
 	],
 	"globalStyle": {

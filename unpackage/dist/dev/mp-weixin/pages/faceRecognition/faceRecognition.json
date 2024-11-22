@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "人脸识别",
+  "navigationStyle": "default",
+  "usingComponents": {
+    "face-title": "../../components/FaceTitle"
+  }
+}

@@ -1,20 +1,23 @@
 <template>
-	<view>
-		办事
-	</view>
+  <view class="">
+  	办事
+  </view>
 </template>
 
 <script>
-	export default {
-		name:"Work",
-		data() {
-			return {
-				
-			};
-		}
-	}
+export default {
+  name:"Work",
+  data() {
+    return {
+      
+    };
+  },
+  methods: {
+    
+  },
+};
 </script>
 
-<style lang="scss">
+<style scoped>
 
 </style>

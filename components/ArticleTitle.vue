@@ -3,9 +3,13 @@
 		<view class="Hot-left">
 			<slot name='left'></slot> 
 		</view>
+		<slot name='content'>
 		
+		</slot>
 		<view class="Hot-rigth">
-			<slot name='rigth'></slot>
+			<view  style="float: right;line-height: 100rpx; display: flex;">
+				<slot name='rigth'></slot>
+			</view>
 		</view>
 	</view>
 </template>
@@ -23,13 +27,13 @@
 
 <style lang="scss" scoped>
 	.Hot-Title{
-		width: 100%;
+		width: 90%;
 		height: 100rpx;
 		display: flex;
 		align-items: center;
-		background-color: #fafbfe;
+		margin: 0 auto;
 		.Hot-left{
-			width: 65%;
+			width: 25%;
 			height: 100%;
 			display: flex;
 			align-items: center;
@@ -38,15 +42,10 @@
 			font-weight: bold;
 		}
 		.Hot-rigth{
-			width: 20%;
+			flex: 1;
 			height: 100%;
-			padding-right: 10rpx;
-			line-height: 75rpx;
 			color: #267fc8;
-			font-size: 28rpx;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			font-size: 27rpx;
 		}
 	}
 </style>

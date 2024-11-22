@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "不动产",
+  "navigationStyle": "default",
+  "usingComponents": {
+    "article-title-vue": "../../components/ArticleTitle"
+  }
+}

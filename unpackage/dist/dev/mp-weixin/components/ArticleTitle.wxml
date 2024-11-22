@@ -1,1 +1,1 @@
-<view class="Hot-Title data-v-463435c1"><view class="Hot-left data-v-463435c1"><slot name="left"></slot></view><view class="Hot-rigth data-v-463435c1"><slot name="rigth"></slot></view></view>
+<view class="Hot-Title data-v-463435c1"><view class="Hot-left data-v-463435c1"><slot name="left"></slot></view><slot name="content"></slot><view class="Hot-rigth data-v-463435c1"><view class="data-v-463435c1" style="float:right;line-height:100rpx;display:flex"><slot name="rigth"></slot></view></view></view>

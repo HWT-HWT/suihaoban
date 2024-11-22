@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../../../common/vendor.js");
 const uni_modules_uniSearchBar_components_uniSearchBar_i18n_index = require("./i18n/index.js");
+const common_assets = require("../../../../common/assets.js");
 const {
   t
 } = common_vendor.initVueI18n(uni_modules_uniSearchBar_components_uniSearchBar_i18n_index.messages);
@@ -157,7 +158,7 @@ if (!Math) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
     a: common_vendor.p({
-      color: "#c0c4cc",
+      color: "#fff",
       size: "18",
       type: "search"
     }),
@@ -192,7 +193,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $props.cancelButton === "always" || $data.show && $props.cancelButton === "auto" ? {
     v: common_vendor.t($options.cancelTextI18n),
     w: common_vendor.o((...args) => $options.cancel && $options.cancel(...args))
-  } : {});
+  } : {}, {
+    x: common_assets._imports_0$4
+  });
 }
 const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
 wx.createComponent(Component);

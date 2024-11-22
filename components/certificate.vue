@@ -83,7 +83,6 @@
 			.scroll-view_H_view {
 				width: 1050rpx; 
 				height:95%;
-				// border: 1px solid green;
 				.scroll-view_H_view-image{
 					width: 500rpx;
 					height: 130rpx;
