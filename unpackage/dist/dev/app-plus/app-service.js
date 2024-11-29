@@ -1573,7 +1573,7 @@ if (uni.restoreGlobal) {
       onPageScroll(event) {
         this.scrollTop = event.detail.scrollTop;
         if (this.scrollTop > this.scrollThreshold) {
-          this.backgroundColor = "#ee734c";
+          this.backgroundColor = "#ff0000";
         }
         if (this.scrollTop < this.scrollThreshold) {
           this.backgroundColor = "";
@@ -1936,7 +1936,7 @@ if (uni.restoreGlobal) {
               })
             ])
           ]),
-          vue.createElementVNode("view", { style: { "height": "200rpx" } })
+          vue.createElementVNode("view", { style: { "height": "100rpx" } })
         ],
         32
         /* NEED_HYDRATION */
@@ -1945,25 +1945,600 @@ if (uni.restoreGlobal) {
   }
   const Home = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-045d88fd"], ["__file", "C:/Users/HWT/Desktop/shb/suihaoban/components/home.vue"]]);
   const _sfc_main$9 = {
-    name: "Work",
+    name: "home",
     data() {
-      return {};
+      return {
+        backgroundColor: "",
+        scrollThreshold: 200,
+        scrollTop: ""
+      };
     },
-    methods: {}
+    methods: {
+      onPageScroll(event) {
+        this.scrollTop = event.detail.scrollTop;
+        if (this.scrollTop > this.scrollThreshold) {
+          this.backgroundColor = "#1e95f3";
+        }
+        if (this.scrollTop < this.scrollThreshold) {
+          this.backgroundColor = "";
+        }
+      },
+      NagTo(index) {
+        formatAppLog("log", "at components/Work.vue:72", index);
+        index === 5 ? uni.navigateTo({
+          url: "/pages/Estate/Estate"
+        }) : index;
+      }
+    },
+    components: {
+      titleVue: ArticleTitleVue
+    }
   };
   function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "" }, " 办事 ");
+    const _component_uni_search_bar = resolveEasycom(vue.resolveDynamicComponent("uni-search-bar"), __easycom_0);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "Home" }, [
+      vue.createElementVNode(
+        "view",
+        {
+          class: "NavTitle",
+          style: vue.normalizeStyle({ backgroundColor: $data.backgroundColor })
+        },
+        [
+          vue.createElementVNode("view", { class: "occupy" }),
+          vue.createElementVNode("view", { class: "search" }, [
+            vue.createElementVNode("view", { class: "search-icon" }, [
+              vue.createElementVNode("image", {
+                class: "search-icon",
+                src: _imports_2$3,
+                mode: ""
+              })
+            ]),
+            vue.createElementVNode("view", { class: "search-input" }, [
+              vue.createVNode(_component_uni_search_bar, {
+                class: "uni-mt-10",
+                placeholder: "搜索服务",
+                bgColor: "",
+                clearButton: "none",
+                cancelButton: "none"
+              })
+            ]),
+            vue.createElementVNode("view", { class: "search-image" }, [
+              vue.createElementVNode("image", {
+                class: "search-image",
+                src: _imports_1$3,
+                mode: ""
+              })
+            ])
+          ])
+        ],
+        4
+        /* STYLE */
+      ),
+      vue.createElementVNode(
+        "scroll-view",
+        {
+          style: { "width": "100%", "height": "100vh", "background-color": "#fafbfe" },
+          "scroll-y": "true",
+          onScroll: _cache[0] || (_cache[0] = (...args) => $options.onPageScroll && $options.onPageScroll(...args)),
+          "enable-flex": ""
+        },
+        [
+          vue.createElementVNode("view", { style: { "width": "100%", "background-color": "#fafbfe" } }, [
+            vue.createElementVNode("view", { class: "operate" }),
+            vue.createElementVNode("view", { class: "WorkList" }, [
+              vue.createElementVNode("view", { class: "WorkList-box" }, [
+                vue.createElementVNode("view", { class: "WorkList-box-image" }),
+                vue.createElementVNode("view", { class: "WorkList-box-text" })
+              ])
+            ])
+          ]),
+          vue.createElementVNode("view", { style: { "height": "100rpx" } })
+        ],
+        32
+        /* NEED_HYDRATION */
+      )
+    ]);
   }
-  const Work = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__file", "C:/Users/HWT/Desktop/shb/suihaoban/components/Work.vue"]]);
+  const Work = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-151e3d6d"], ["__file", "C:/Users/HWT/Desktop/shb/suihaoban/components/Work.vue"]]);
   const _sfc_main$8 = {
+    name: "home",
     data() {
-      return {};
+      return {
+        backgroundColor: "",
+        scrollThreshold: 200,
+        scrollTop: "",
+        peopleLsit: ["ETC办理", "国际驾照办理", "智慧充电", "视频会员", "健康通"],
+        ZoneList: [
+          { name: "社保", image: "../static/suihaoban/ioc1.png" },
+          { name: "医保", image: "../static/suihaoban/ioc2.png" },
+          { name: "公积金", image: "../static/suihaoban/ioc3.png" },
+          { name: "出入境", image: "../static/suihaoban/ioc4.png" },
+          { name: "城乡居民医疗", image: "../static/suihaoban/ioc5.png" },
+          { name: "不动产", image: "../static/suihaoban/ioc5.png" },
+          { name: "民政", image: "../static/suihaoban/ioc6.png" },
+          { name: "考试教育", image: "../static/suihaoban/ioc7.png" }
+        ],
+        bannerIcon: [
+          {
+            name: "数字空间",
+            image: "../static/suihaoban/Nav_title_ioc1.png"
+          },
+          {
+            name: "电子印章",
+            image: "../static/suihaoban/Nav_title_ioc2.png"
+          },
+          {
+            name: "亮证",
+            image: "../static/suihaoban/Nav_title_ioc3.png"
+          },
+          {
+            name: "关爱版",
+            image: "../static/suihaoban/Nav_title_ioc4.png"
+          }
+        ],
+        iconLog: [
+          [
+            {
+              name: "社保卡申领",
+              image: "../static/suihaoban/home_list_1.png"
+            },
+            {
+              name: "车辆年检",
+              image: "../static/suihaoban/home_list_2.png"
+            },
+            {
+              name: "拍证件照",
+              image: "../static/suihaoban/home_list_3.png"
+            },
+            {
+              name: "欠薪投诉",
+              image: "../static/suihaoban/home_list_4.png"
+            },
+            {
+              name: "随手拍",
+              image: "../static/suihaoban/home_list_5.png"
+            },
+            {
+              name: "签证服务",
+              image: "../static/suihaoban/home_list_6.png"
+            },
+            {
+              name: "志愿时",
+              image: "../static/suihaoban/home_list_7.png"
+            },
+            {
+              name: "微心愿征集",
+              image: "../static/suihaoban/home_list_8.png"
+            },
+            {
+              name: "景区购票",
+              image: "../static/suihaoban/home_list_9.png"
+            },
+            {
+              name: "贷款",
+              image: "../static/suihaoban/home_list_10.png"
+            }
+          ],
+          [
+            {
+              name: "居住证",
+              image: "../static/suihaoban/home_list_1.png"
+            },
+            {
+              name: "广州图书馆",
+              image: "../static/suihaoban/home_list_2.png"
+            },
+            {
+              name: "考试教育",
+              image: "../static/suihaoban/home_list_3.png"
+            },
+            {
+              name: "查缴服务",
+              image: "../static/suihaoban/home_list_4.png"
+            },
+            {
+              name: "服务一张图",
+              image: "../static/suihaoban/home_list_5.png"
+            },
+            {
+              name: "实时公交",
+              image: "../static/suihaoban/home_list_6.png"
+            },
+            {
+              name: "交通运输",
+              image: "../static/suihaoban/home_list_7.png"
+            },
+            {
+              name: "百姓提案",
+              image: "../static/suihaoban/home_list_8.png"
+            },
+            {
+              name: "签证服务",
+              image: "../static/suihaoban/home_list_9.png"
+            },
+            {
+              name: "更多",
+              image: "../static/suihaoban/home_list_10.png"
+            }
+          ]
+        ]
+      };
+    },
+    methods: {
+      onPageScroll(event) {
+        this.scrollTop = event.detail.scrollTop;
+        if (this.scrollTop > this.scrollThreshold) {
+          this.backgroundColor = "#ff0000";
+        }
+        if (this.scrollTop < this.scrollThreshold) {
+          this.backgroundColor = "";
+        }
+      },
+      NagTo(index) {
+        formatAppLog("log", "at components/Live.vue:310", index);
+        index === 5 ? uni.navigateTo({
+          url: "/pages/Estate/Estate"
+        }) : index;
+      }
+    },
+    components: {
+      titleVue: ArticleTitleVue
     }
   };
   function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("div");
+    const _component_uni_search_bar = resolveEasycom(vue.resolveDynamicComponent("uni-search-bar"), __easycom_0);
+    const _component_titleVue = vue.resolveComponent("titleVue");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "Home" }, [
+      vue.createElementVNode(
+        "view",
+        {
+          class: "NavTitle",
+          style: vue.normalizeStyle({ backgroundColor: $data.backgroundColor })
+        },
+        [
+          vue.createElementVNode("view", { class: "occupy" }),
+          vue.createElementVNode("view", { class: "search" }, [
+            vue.createElementVNode("view", { class: "search-icon" }, [
+              vue.createElementVNode("image", {
+                class: "search-icon",
+                src: _imports_2$3,
+                mode: ""
+              })
+            ]),
+            vue.createElementVNode("view", { class: "search-input" }, [
+              vue.createVNode(_component_uni_search_bar, {
+                class: "uni-mt-10",
+                placeholder: "搜索服务",
+                bgColor: "",
+                clearButton: "none",
+                cancelButton: "none"
+              })
+            ]),
+            vue.createElementVNode("view", { class: "search-image" }, [
+              vue.createElementVNode("image", {
+                class: "search-image",
+                src: _imports_1$3,
+                mode: ""
+              })
+            ])
+          ])
+        ],
+        4
+        /* STYLE */
+      ),
+      vue.createElementVNode(
+        "scroll-view",
+        {
+          style: { "width": "100%", "height": "100vh", "background-color": "#fafbfe" },
+          "scroll-y": "true",
+          onScroll: _cache[0] || (_cache[0] = (...args) => $options.onPageScroll && $options.onPageScroll(...args)),
+          "enable-flex": ""
+        },
+        [
+          vue.createElementVNode("view", { style: { "width": "100%", "background-color": "#fafbfe" } }, [
+            vue.createElementVNode("swiper", {
+              class: "banner",
+              "indicator-active-color": "#fff",
+              "indicator-dots": true,
+              autoplay: true,
+              interval: 3e3,
+              duration: 1e3
+            }, [
+              vue.createElementVNode("swiper-item", { class: "swiper-item" }, [
+                vue.createElementVNode("image", {
+                  src: _imports_2$2,
+                  mode: ""
+                })
+              ]),
+              vue.createElementVNode("swiper-item", { class: "swiper-item" }, [
+                vue.createElementVNode("image", {
+                  src: _imports_3$2,
+                  mode: ""
+                })
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "ioc" }, [
+              vue.createElementVNode("view", { class: "icon" }, [
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($data.bannerIcon, (item, index) => {
+                    return vue.openBlock(), vue.createElementBlock("view", {
+                      class: "icon-btn",
+                      key: index
+                    }, [
+                      vue.createElementVNode(
+                        "view",
+                        {
+                          class: "icon-btn-icon",
+                          style: vue.normalizeStyle({ backgroundImage: "url(" + item.image + ")" })
+                        },
+                        null,
+                        4
+                        /* STYLE */
+                      ),
+                      vue.createElementVNode(
+                        "view",
+                        null,
+                        vue.toDisplayString(item.name),
+                        1
+                        /* TEXT */
+                      )
+                    ]);
+                  }),
+                  128
+                  /* KEYED_FRAGMENT */
+                ))
+              ]),
+              vue.createElementVNode("view", { class: "bannerMini" }, [
+                vue.createTextVNode(" 广州  "),
+                vue.createElementVNode("image", {
+                  style: { "width": "30rpx", "height": "30rpx" },
+                  src: _imports_4$3,
+                  mode: ""
+                }),
+                vue.createTextVNode("  21℃ | 广州不动产功能迁移.... ")
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "occupy-box" }),
+            vue.createElementVNode("swiper", {
+              class: "swiper",
+              "indicator-dots": true,
+              "indicator-active-color": "#ee734c",
+              "indicator-color": "#cccccc",
+              interval: 3e3,
+              duration: 1e3
+            }, [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($data.iconLog, (item, index) => {
+                  return vue.openBlock(), vue.createElementBlock("swiper-item", { key: index }, [
+                    vue.createElementVNode("view", { class: "icon-log" }, [
+                      vue.createElementVNode("view", { class: "log-box" }, [
+                        (vue.openBlock(true), vue.createElementBlock(
+                          vue.Fragment,
+                          null,
+                          vue.renderList(item, (sum, num) => {
+                            return vue.openBlock(), vue.createElementBlock("view", {
+                              class: "btn-log",
+                              key: num
+                            }, [
+                              vue.createElementVNode("image", {
+                                class: "btn-log-image",
+                                src: sum.image,
+                                mode: ""
+                              }, null, 8, ["src"]),
+                              vue.createElementVNode(
+                                "view",
+                                { class: "btn-log-text" },
+                                vue.toDisplayString(sum.name),
+                                1
+                                /* TEXT */
+                              )
+                            ]);
+                          }),
+                          128
+                          /* KEYED_FRAGMENT */
+                        ))
+                      ])
+                    ])
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ]),
+            vue.createElementVNode("view", { class: "Zone" }, [
+              vue.createElementVNode("image", {
+                class: "Zone",
+                src: _imports_5$2,
+                mode: ""
+              })
+            ]),
+            vue.createVNode(_component_titleVue, null, {
+              left: vue.withCtx(() => [
+                vue.createTextVNode(" 热门服务 ")
+              ]),
+              content: vue.withCtx(() => [
+                vue.createElementVNode("view", { class: "Hot-content" }, [
+                  vue.createElementVNode("image", {
+                    src: _imports_6$2,
+                    mode: ""
+                  }),
+                  vue.createTextVNode("12345诉求直达"),
+                  vue.createElementVNode("image", {
+                    src: _imports_7$2,
+                    mode: ""
+                  })
+                ])
+              ]),
+              rigth: vue.withCtx(() => [
+                vue.createTextVNode(" 更多 ")
+              ]),
+              _: 1
+              /* STABLE */
+            }),
+            vue.createElementVNode("view", { class: "Hot" }, [
+              vue.createElementVNode("view", { class: "Hot-icon" }, [
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($data.ZoneList, (item, index) => {
+                    return vue.openBlock(), vue.createElementBlock("view", {
+                      class: "Hot-icon-box",
+                      key: index,
+                      onClick: ($event) => $options.NagTo(index)
+                    }, [
+                      vue.createElementVNode("view", { class: "box-image" }, [
+                        vue.createElementVNode("image", {
+                          class: "Hot-icon-box-image",
+                          src: item.image,
+                          mode: ""
+                        }, null, 8, ["src"])
+                      ]),
+                      vue.createElementVNode(
+                        "view",
+                        { class: "Hot-icon-box-text" },
+                        vue.toDisplayString(item.name),
+                        1
+                        /* TEXT */
+                      )
+                    ], 8, ["onClick"]);
+                  }),
+                  128
+                  /* KEYED_FRAGMENT */
+                ))
+              ])
+            ]),
+            vue.createVNode(_component_titleVue, null, {
+              left: vue.withCtx(() => [
+                vue.createTextVNode(" 特色服务 ")
+              ]),
+              rigth: vue.withCtx(() => [
+                vue.createTextVNode(" 更多 ")
+              ]),
+              _: 1
+              /* STABLE */
+            }),
+            vue.createElementVNode("view", { class: "characteristic" }, [
+              (vue.openBlock(), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList(6, (item) => {
+                  return vue.createElementVNode("view", {
+                    class: "characteristic-image",
+                    key: item
+                  }, [
+                    vue.createElementVNode("image", {
+                      class: "image",
+                      src: `../static/suihaoban/bg_mini_banner${item}.png`,
+                      mode: ""
+                    }, null, 8, ["src"])
+                  ]);
+                }),
+                64
+                /* STABLE_FRAGMENT */
+              ))
+            ]),
+            vue.createVNode(_component_titleVue, null, {
+              left: vue.withCtx(() => [
+                vue.createTextVNode(" 便民服务 ")
+              ]),
+              _: 1
+              /* STABLE */
+            }),
+            vue.createElementVNode("view", { class: "people" }, [
+              vue.createElementVNode("view", { class: "people-image" }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: _imports_8$1,
+                  mode: ""
+                })
+              ]),
+              vue.createElementVNode("view", { class: "people-icon" }, [
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($data.peopleLsit, (item, index) => {
+                    return vue.openBlock(), vue.createElementBlock("view", {
+                      class: "icon",
+                      key: index
+                    }, [
+                      vue.createElementVNode("image", {
+                        class: "image",
+                        src: `../static/suihaoban/bm_ic_${index + 1}.png`,
+                        mode: ""
+                      }, null, 8, ["src"]),
+                      vue.createElementVNode(
+                        "view",
+                        { class: "text" },
+                        vue.toDisplayString(item),
+                        1
+                        /* TEXT */
+                      )
+                    ]);
+                  }),
+                  128
+                  /* KEYED_FRAGMENT */
+                ))
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "backG" }, [
+              vue.createElementVNode("image", {
+                class: "image",
+                src: _imports_9,
+                mode: ""
+              })
+            ]),
+            vue.createElementVNode("view", { class: "backGu" }, [
+              vue.createElementVNode("view", { class: "backGuUrl" }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: _imports_10,
+                  mode: ""
+                })
+              ]),
+              vue.createElementVNode("view", { class: "backGuUrl" }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: _imports_11,
+                  mode: ""
+                })
+              ])
+            ]),
+            vue.createElementVNode("view", { style: { "width": "95%" } }, [
+              vue.createVNode(_component_titleVue, null, {
+                left: vue.withCtx(() => [
+                  vue.createTextVNode(" 我的足迹 ")
+                ]),
+                _: 1
+                /* STABLE */
+              })
+            ]),
+            vue.createElementVNode("view", { class: "backGun" }, [
+              vue.createElementVNode("image", {
+                class: "image",
+                src: _imports_12,
+                mode: ""
+              })
+            ]),
+            vue.createElementVNode("view", { class: "backGund" }, [
+              vue.createElementVNode("image", {
+                class: "image",
+                src: _imports_13,
+                mode: ""
+              })
+            ])
+          ]),
+          vue.createElementVNode("view", { style: { "height": "100rpx" } })
+        ],
+        32
+        /* NEED_HYDRATION */
+      )
+    ]);
   }
-  const Live = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__file", "C:/Users/HWT/Desktop/shb/suihaoban/components/Live.vue"]]);
+  const Live = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-e3c415cd"], ["__file", "C:/Users/HWT/Desktop/shb/suihaoban/components/Live.vue"]]);
   const _imports_0$4 = "/static/suihaoban/User_bg_1.png";
   const _sfc_main$7 = {
     name: "certificate",

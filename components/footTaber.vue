@@ -49,7 +49,7 @@
 <style lang="scss" scoped>
 	.tab{
 		width: 100%;
-		height: 150rpx;
+		height: 100rpx;
 		background-color: #fff;
 		position: fixed;
 		bottom: 0;

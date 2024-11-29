@@ -24,7 +24,8 @@
         /* 模块配置 */
         "modules" : {
             "Camera" : {},
-            "LivePusher" : {}
+            "LivePusher" : {},
+            "Maps" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -53,7 +54,15 @@
                 "dSYMs" : false
             },
             /* SDK配置 */
-            "sdkConfigs" : {},
+            "sdkConfigs" : {
+                "maps" : {
+                    "amap" : {
+                        "name" : "amapS9WECHfs",
+                        "appkey_ios" : "",
+                        "appkey_android" : "e70bb04434bff2962559ca5f3845ef8e"
+                    }
+                }
+            },
             "icons" : {
                 "android" : {
                     "hdpi" : "unpackage/res/icons/72x72.png",

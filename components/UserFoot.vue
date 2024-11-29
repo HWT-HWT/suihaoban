@@ -47,19 +47,23 @@
 		width: 100%;
 		margin-top: 20rpx;
 		.UserFootList{
-			width: 95%;
+			width: 100%;
 			height: 100%;
 			display: flex;
 			margin: 0 auto;
 			.image{
 				width: 100%;
 				height: 100%;
-				display: flex; 
-				justify-content: space-between;
+				// border: 1px solid;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				.image-icon{
-					width: 200rpx;
-					height: 180rpx;
+					width: 220rpx;
+					height: 200rpx;
+					margin: 25rpx 0;
 					margin-left: 25rpx;
+					
 				}
 			}
 		}

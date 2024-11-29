@@ -60,6 +60,7 @@
 					display: flex;
 					width: 120rpx;
 					height:45rpx;
+					transform: scale(1.25);
 				}
 			}
 		}

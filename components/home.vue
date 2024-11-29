@@ -161,7 +161,7 @@
 					
 				</view>
 				
-				<view style="height: 200rpx;">
+				<view style="height: 100rpx;">
 					
 				</view>
 		</scroll-view>
@@ -299,7 +299,7 @@
 				  this.scrollTop =  event.detail.scrollTop;
 				  
 				  if(this.scrollTop>this.scrollThreshold){
-					  this.backgroundColor = '#ee734c'
+					  this.backgroundColor = '#ff0000'
 				  }
 				  if(this.scrollTop<this.scrollThreshold){
 				  	this.backgroundColor = ''

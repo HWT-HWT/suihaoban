@@ -19,6 +19,9 @@
   "permissions": {
     "Camera": {},
     "LivePusher": {},
+    "Maps": {
+      "coordType": "gcj02"
+    },
     "UniNView": {
       "description": "UniNView原生渲染"
     }
@@ -104,6 +107,13 @@
         "dSYMs": false
       },
       "plugins": {
+        "maps": {
+          "amap": {
+            "name": "amapS9WECHfs",
+            "appkey_ios": "",
+            "appkey_android": "e70bb04434bff2962559ca5f3845ef8e"
+          }
+        },
         "audio": {
           "mp3": {
             "description": "Android平台录音支持MP3格式文件"
